@@ -76,38 +76,16 @@
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  align-items: stretch;
-  background-color: #eaeaea;
 }
 
 .Code-Subpane {
   flex-grow: 1;
-  display: flex;
-  padding: 32px;
-}
-
-.Code-Lines {
-  font-size: 20px;
-  font-family: monospace;
-  padding-top: 2px;
-  padding-right: 8px;
-}
-
-.Code-Textarea {
-  flex-grow: 1;
-  border: 0;
-  font-size: 20px;
-  font-family: monospace;
-  resize: none;
-  background-color: #eaeaea;
-}
-
-.Code-Textarea:focus-visible {
-  outline: 0;
+  background-color: red;
+  overflow: auto;
+  border-bottom: 1px solid #ccc;
 }
 
 .Submit-Pane {
-  background-color: white;
   text-align: right;
   padding: 32px;
 }
@@ -124,4 +102,17 @@
 
 .Submit-Button:hover {
   cursor: pointer;
+}
+
+.react-codemirror2 {
+  width: 100%;
+  height: 100%;
+}
+
+.CodeMirror {
+  height: 100%;
+}
+
+.CodeMirror *  {
+  font-size: 20px;
 }

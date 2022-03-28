@@ -1,8 +1,13 @@
 import { useState } from 'react';
+import {UnControlled as CodeMirror} from 'react-codemirror2';
+import 'codemirror/lib/codemirror.css';
+import 'codemirror/theme/xq-light.css';
+import 'codemirror/mode/python/python';
+
 import './App.css';
 
 const DEFAULT_CODE = `def twoFeet(lengths):
-    return any(len >= 12 for len in lengths)`;
+\treturn any(len >= 24 for len in lengths)`;
 
 function App() {
   const [code, setCode] = useState(DEFAULT_CODE);
@@ -30,7 +35,7 @@ function App() {
           </p>
           <p className="Sample-Title">Sample 2:</p>
           <p className="Sample-Block">
-            <b>Input:</b> lengths = [8.9, 7.4, 12.2]
+            <b>Input:</b> lengths = [8.9, 7.4, 24.2]
             <br />
             <b>Output:</b> True
             <br />
@@ -39,8 +44,18 @@ function App() {
         </div>
         <div className="Code-Pane">
           <div className="Code-Subpane">
-            <div className="Code-Lines">1<br />2</div>
-            <textarea className="Code-Textarea" spellcheck="false" data-gramm="false" value={code} onChange={e => setCode(e.target.value)} />
+            <CodeMirror
+              value={DEFAULT_CODE}
+              options={{
+                mode: 'python',
+                theme: 'xq-light',
+                lineNumbers: true,
+                indentWithTabs: true,
+                indentUnit: 4,
+                viewportMargin: Infinity,
+              }}
+              onChange={(editor, data, value) => {}}
+            />
           </div>
           <div className="Submit-Pane">
             <button className="Submit-Button" onClick={() => alert('hi')}>Submit</button>
