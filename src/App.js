@@ -7,13 +7,41 @@ import 'codemirror/mode/python/python';
 import './App.css';
 
 const DEFAULT_CODE = `def twoFeet(lengths):
-\treturn any(len >= 24 for len in lengths)`;
+\treturn any(x >= 24 for x in lengths)
+`;
 
 function App() {
-  const [code, setCode] = useState(DEFAULT_CODE);
+  const [state, setState] = useState(false);
+  const [modal, setModal] = useState(false);
+
+  const submitCode = () => {
+    setModal(true);
+    setTimeout(() => {
+      setModal(false);
+      setState(true);
+    }, 10000);
+  };
 
   return (
     <div className="App">
+      { modal &&
+        <div className="Modal-Container">
+          <div className="Modal-Background"></div>
+          <div className="Modal" style={{border: `2px solid ${state ? '#0f0' : '#f00'}`}}>
+            <p className="Modal-Text">
+              { state ? (
+                <p style={{color: '#0f0'}}>
+                  Accepted
+                </p>
+              ) : (
+                <p style={{color: '#f00'}}>
+                  Wrong Answer
+                </p>
+              ) }
+            </p>
+          </div>
+        </div>
+      }
       <p className="Header">FeetCode</p>
       <div className="Main">
         <div className="Problem-Pane">
@@ -58,7 +86,7 @@ function App() {
             />
           </div>
           <div className="Submit-Pane">
-            <button className="Submit-Button" onClick={() => alert('hi')}>Submit</button>
+            <button className="Submit-Button" onClick={submitCode}>Submit</button>
           </div>
         </div>
       </div>
