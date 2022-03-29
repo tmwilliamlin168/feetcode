@@ -55,7 +55,7 @@ function App() {
           </p>
           <p className="Sample-Title">Sample 1:</p>
           <p className="Sample-Block">
-            <b>Input:</b> lengths = [0.01, 4.5, 6.3, 5.7]
+            <b>Input:</b> lengths = [0.01, 4.5, 6.9, 5.7]
             <br />
             <b>Output:</b> false
             <br />
@@ -63,7 +63,7 @@ function App() {
           </p>
           <p className="Sample-Title">Sample 2:</p>
           <p className="Sample-Block">
-            <b>Input:</b> lengths = [8.9, 7.4, 24.2]
+            <b>Input:</b> lengths = [9.6, 7.4, 24.2]
             <br />
             <b>Output:</b> True
             <br />
